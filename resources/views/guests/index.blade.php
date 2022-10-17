@@ -16,7 +16,7 @@
 
 	<title>LearnPLUS | Learning Management System HTML Template</title>
 
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}" type="image/x-icon" />
 	<link rel="apple-touch-icon" href="{{asset('assets/images/apple-touch-icon.png')}}" />
 	<link rel="apple-touch-icon" sizes="57x57" href="{{asset('assets/images/apple-touch-icon-57x57.png')}}" />
 	<link rel="apple-touch-icon" sizes="72x72" href="{{asset('assets/images/apple-touch-icon-72x72.png')}}" />
@@ -27,7 +27,7 @@
 	<link rel="apple-touch-icon" sizes="152x152" href="{{asset('assets/images/apple-touch-icon-152x152.png')}}" />
 	<link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/images/apple-touch-icon-180x180.png')}}" />
 
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/rs-plugin/css/settings.css" media="screen')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/rs-plugin/css/settings.css')}}" media="screen" />
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
@@ -37,7 +37,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/style.css')}}">
 
 	<!-- COLORS -->
-	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/custom.css')}}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -293,7 +293,7 @@
                                 style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;"> <a target="_blank" href="#" class="btn btn-primary">Purchase Now</a> <a target="_blank" href="#" class="btn btn-default">Read More About</a>
                             </div>
                         </li>
-                        <li data-transition="fade" data-slotamount="1" data-masterspeed="500" data-thumb="upload/slider_new_02.jpg')}}"  data-saveperformance="off"  data-title="Slide">
+                        <li data-transition="fade" data-slotamount="1" data-masterspeed="500" data-thumb="{{asset('assets/upload/slider_new_02.jpg')}}')}}"  data-saveperformance="off"  data-title="Slide">
                             <img src="{{asset('assets/upload/slider_new_02.jpg')}}"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                             <div class="tp-caption slider_layer_04 text-center lft tp-resizeme"
                                 data-x="center"
