@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PagesController::class, 'homePage' ]);
+Route::get('/', [PagesController::class, 'homePage' ])->name('home');
+Route::get('/auth-user', [AuthController::class, 'loginPage' ])->name('user.login');
