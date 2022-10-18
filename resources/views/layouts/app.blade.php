@@ -68,34 +68,42 @@
 
                     <div class="col-md-6 text-right">
                         <ul class="list-inline">
-                            <li>
-                                <a class="social" href="#"><i class="fa fa-facebook"></i></a>
-                                <a class="social" href="#"><i class="fa fa-twitter"></i></a>
-                                <a class="social" href="#"><i class="fa fa-google-plus"></i></a>
-                                <a class="social" href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                        class="fa fa-lock"></i> Login & Register</a>
-                                <div class="dropdown-menu">
-                                    <form method="post">
-                                        <div class="form-title">
-                                            <h4>Login Area</h4>
+                            @if (Auth::check())
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#"><i
+                                            class="fa fa-user"></i>{{ ' ' . Auth::User()->first_name . ' ' . Auth::User()->last_name }}</a>
+                                </li>
+                            @else
+                                <li>
+                                    <a class="social" href="#"><i class="fa fa-facebook"></i></a>
+                                    <a class="social" href="#"><i class="fa fa-twitter"></i></a>
+                                    <a class="social" href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a class="social" href="#"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
+                                            class="fa fa-lock"></i> Login / Register</a>
+                                    <div class="dropdown-menu">
+                                        <form action="{{ route('login') }}" method="post">
+                                            @csrf
+                                            <div class="form-title">
+                                                <h4>Login Area</h4>
+                                                <hr>
+                                            </div>
+                                            <input class="form-control" type="text" name="user_id"
+                                                placeholder="User Id">
+                                            <div class="formpassword">
+                                                <input class="form-control" type="password" name="password"
+                                                    placeholder="******">
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <button type="submit" class="btn btn-block btn-primary">Login</button>
                                             <hr>
-                                        </div>
-                                        <input class="form-control" type="text" name="username"
-                                            placeholder="User Name">
-                                        <div class="formpassword">
-                                            <input class="form-control" type="password" name="password"
-                                                placeholder="******">
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <button type="submit" class="btn btn-block btn-primary">Login</button>
-                                        <hr>
-                                        <h4><a href="{{route('user.login')}}">Create an Account</a></h4>
-                                    </form>
-                                </div>
-                            </li>
+                                            <h4><a href="{{ route('login') }}">Create an Account</a></h4>
+                                        </form>
+                                    </div>
+                                </li>
+                            @endif
                         </ul>
                     </div><!-- end right -->
                 </div><!-- end row -->
@@ -120,15 +128,23 @@
 
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="{{route('home')}}">Home</a></li>
-                                <li><a href="page-about.html">About</a></li>
-                                <li><a href="forums.html">Community</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="page-contact.html">Contact</a></li>
+                                {{-- <li><a href="{{ route('home') }}">Home</a></li> --}}
+                                {{-- <li><a href="page-about.html">About</a></li>
+                                <li><a href="page-contact.html">Contact</a></li> --}}
                             </ul><!-- end nav navbar-nav -->
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="btn btn-primary" href="{{route('user.login')}}"><i class="fa fa-sign-in"></i>
-                                        Register Now</a></li>
+                                @if (Auth::check())
+                                    <li>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf<button type="submit" class="btn btn-primary"><i
+                                                    class="fa fa-sign-in"></i>
+                                                Logout</button></form>
+                                    </li>
+                                @else
+                                    <li><a class="btn btn-primary" href="{{ route('login') }}"><i
+                                                class="fa fa-sign-in"></i>
+                                            Login / Register</a></li>
+                                @endif
                             </ul>
                         </div>
                         <!--/.nav-collapse -->
@@ -139,7 +155,7 @@
 
         @yield('content')
 
-        <footer class="dark footer section">
+        {{-- <footer class="dark footer section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-md-6 col-xs-12">
@@ -238,13 +254,13 @@
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container -->
-        </footer><!-- end section -->
+        </footer><!-- end section --> --}}
 
         <section class="copyright">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-left">
-                        <p>© 2015 {{ config('app.name') }}</p>
+                        <p>© 2022 {{ config('app.name') }}</p>
                     </div><!-- end col -->
                     <div class="col-md-6 text-right">
                         <ul class="list-inline">
@@ -333,8 +349,8 @@
     <script src="{{ asset('assets/js/bxslider.js') }}"></script>
     <script type="text/javascript">
         /* ==============================================
-            Vertical Carousel
-        =============================================== */
+                        Vertical Carousel
+                    =============================================== */
         (function($) {
             "use strict";
             $('.bxslider').bxSlider({
