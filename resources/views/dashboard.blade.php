@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="shop-item-title text-center clearfix">
-                        <h4><a href="course-single.html">Learn Web Design & Development</a></h4>
+                        <h4><a href="#">View Logs</a></h4>
                     </div><!-- end shop-item-title -->
                 </div><!-- end relative -->
             </div><!-- end col -->
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="shop-item-title text-center clearfix">
-                        <h4><a href="course-single.html">Learn Web Design & Development</a></h4>
+                        <h4><a href="#">Add Log</a></h4>
                     </div><!-- end shop-item-title -->
                 </div><!-- end relative -->
             </div><!-- end col -->
