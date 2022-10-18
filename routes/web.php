@@ -1,7 +1,7 @@
 <?php
-
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\StudentController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +16,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PagesController::class, 'homePage' ])->name('home');
-Route::get('/auth-user', [AuthController::class, 'loginPage' ])->name('user.login');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::controller(StudentController::class)->group(function () {
+    Route::get('/student/{id}/profile', 'profile')->name('student.profile');
+    Route::post('/student/{id}/profile', 'update')->name('update.student.profile');
+});
+
+require __DIR__.'/auth.php';
+
