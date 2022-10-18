@@ -76,9 +76,10 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
+                                <form id="login-form" action="{{route('login')}}" method="post" role="form" style="display: block;">
+                                    @csrf
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                        <input type="text" name="user_id" id="username" tabindex="1" class="form-control" placeholder="User ID" value="">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
@@ -104,19 +105,26 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
+                            <form id="register-form"  action="{{ route('register') }}" method="post" role="form" style="display: none;">
+                                    @csrf
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                        <input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="First Name">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                        <input type="text" name="last_name" id="last_name" tabindex="1" class="form-control" placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="user_id" id="username" tabindex="1" class="form-control" placeholder="User ID">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                                     </div>
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-12">
